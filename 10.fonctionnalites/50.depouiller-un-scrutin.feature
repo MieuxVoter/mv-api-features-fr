@@ -47,7 +47,8 @@ Scénario: Dépouillement à tout instant
           Épisode IV : excellent
           Épisode V  : très bon
           Épisode VI : très bon
+          Disney     : insuffisant
           """
-        # … TODO
         Quand R2D2 dépouille le scrutin titré "La Saga Star Wars"
         Alors R2D2 devrait réussir
+           Et R2D2 affiche la réponse
