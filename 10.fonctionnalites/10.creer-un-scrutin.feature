@@ -1,14 +1,14 @@
 #language: fr
 @fr
 Fonctionnalité: Créer un scrutin au jugement majoritaire
-  Dans le but de décider
-  En tant que pékin lambda
-  Je souhaite créer un scrutin au jugement majoritaire
+  Dans le but de décider collectivement
+  En tant que collectif démocratique connecté
+  Nous souhaitons créer un scrutin au jugement majoritaire
 
 
 
 Scénario: Créer un scrutin au jugement majoritaire
-  Étant donné un utilisateur surnommé Chinao
+  Étant donné un citoyen surnommé Chinao
 #      Sachant qu'il ne devrait y avoir aucun scrutin au jugement majoritaire dans la base de données
         Quand Chinao crée un scrutin au jugement majoritaire comme suit:
           """
