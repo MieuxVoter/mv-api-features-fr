@@ -45,10 +45,20 @@ Scénario: Dépouillement à tout instant
         Quand R2D2 vote sur le scrutin au jugement majoritaire titré "La Saga Star Wars":
           """
           Épisode IV : excellent
-          Épisode V  : très bon
-          Épisode VI : très bon
+          Épisode V  : très bien
+          Épisode VI : très bien
           Disney     : insuffisant
           """
-        Quand R2D2 dépouille le scrutin titré "La Saga Star Wars"
+           Et R2D2 dépouille le scrutin titré "La Saga Star Wars"
         Alors R2D2 devrait réussir
-           Et R2D2 affiche la réponse
+        Quand C3PO vote sur le scrutin au jugement majoritaire titré "La Saga Star Wars":
+          """
+          Épisode IV : excellent
+          Épisode V  : passable
+          Épisode VI : très bien
+          Disney     : à rejeter
+          """
+           Et C3PO dépouille le scrutin titré "La Saga Star Wars"
+        Alors C3PO devrait aussi réussir
+        Quand C3PO dépouille à nouveau le scrutin titré "La Saga Star Wars"
+        Alors C3PO devrait encore réussir
