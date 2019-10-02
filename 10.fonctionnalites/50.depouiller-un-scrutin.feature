@@ -1,6 +1,5 @@
 #language: fr
 @fr
-@wip
 Fonctionnalité: Dépouiller un scrutin au jugement majoritaire (liquide)
   Dans le but de connaître les résultats d'un scrutin
   En tant que démocrate
