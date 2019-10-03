@@ -17,7 +17,7 @@ Règle: Les modérateur⋅es ont le droit de supprimer des scrutins
 
 
 
-Scénario: Suppression d'un scrutin sans aucun vote
+Scénario: Suppression de mon scrutin sans aucun vote
   Étant donné un citoyen nommé Léon
            Et Léon crée un scrutin au jugement majoritaire comme suit:
           """
@@ -30,3 +30,23 @@ Scénario: Suppression d'un scrutin sans aucun vote
         Quand Léon tente de supprimer le scrutin titré "Test"
         Alors Léon devrait réussir
            Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
+
+
+
+Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier dessus
+  Étant donné un citoyen nommé Troll
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          titre: Les produits de la France, moralement
+          options:
+            - La fission nucléaire
+            - Les armes
+            - Les alcools
+            - Les fromages
+            - Les logiciels
+            - La commune
+          """
+        Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
+        Quand Troll tente de supprimer le scrutin titré "Les produits de la France, moralement"
+        Alors Troll devrait échouer
+           Et il devrait encore y avoir un scrutin au jugement majoritaire dans la base de données
