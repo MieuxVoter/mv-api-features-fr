@@ -33,6 +33,21 @@ Scénario: Suppression de mon scrutin sans aucun vote
 
 
 
+Scénario: Suppression d'un scrutin par un modérateur
+  Étant donné un modérateur nommé Georges
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          titre: BuY mY Pr0dUcT
+          options:
+            - C4C4
+            - $3×
+          """
+        Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
+        Alors Georges devrait réussir
+           Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
+
+
+
 Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier dessus
   Étant donné un citoyen nommé Troll
            Et un scrutin au jugement majoritaire comme suit:
