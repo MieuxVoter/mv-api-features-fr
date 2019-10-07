@@ -1,6 +1,5 @@
 #language: fr
 @fr
-@wip
 Fonctionnalité: Supprimer un scrutin au jugement majoritaire (liquide)
   Dans le but de modérer un comportement abusif
   En tant que modératrice
@@ -17,7 +16,7 @@ Règle: Les modérateur⋅es ont le droit de supprimer des scrutins
 
 
 
-Scénario: Suppression de mon scrutin sans aucun vote
+Scénario: Suppression de mon scrutin de test sans aucun vote
   Étant donné un citoyen nommé Léon
            Et Léon crée un scrutin au jugement majoritaire comme suit:
           """
@@ -70,4 +69,29 @@ Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
         Quand Troll tente de supprimer le scrutin titré "Les produits de la France, moralement"
         Alors Troll devrait échouer
+           Et il devrait encore y avoir un scrutin au jugement majoritaire dans la base de données
+
+
+
+Scénario: Échec de la suppression de mon scrutin car il contient des votes
+  Étant donné un citoyen nommé Iflop
+           Et un citoyenne nommée Doxa
+           Et Iflop crée un scrutin au jugement majoritaire comme suit:
+          """
+          titre: L'éthique des entreprises
+          options:
+            - Monsanto
+            - Total
+            - Mobicoop
+          """
+        Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
+           Et Doxa vote sur le scrutin titré "L'éthique des entreprises":
+          """
+          Monsanto : à rejeter
+          Total    : insuffixant
+          Mobicoop : très bien
+          """
+         Mais Iflop n'aime pas ça
+        Alors Iflop tente de supprimer le scrutin titré "L'éthique des entreprises"
+         Mais Iflop devrait échouer
            Et il devrait encore y avoir un scrutin au jugement majoritaire dans la base de données
