@@ -32,7 +32,7 @@ Scénario: Voter au jugement majoritaire
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Les modes de scrutin
-          options:
+          candidats:
             - uninominal à un tour
             - uninominal à deux tours
             - vote par liste
@@ -88,7 +88,7 @@ Scénario: Nombre pair de votant⋅e⋅s
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Les croix
-          options:
+          candidats:
             - croix de bois
             - croix de fer
           """
@@ -121,7 +121,7 @@ Scénario: Trois votant⋅e⋅s, départage simple
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Les whiskies
-          options:
+          candidats:
             - suntory
             - mccalan
             - les chiens
@@ -168,7 +168,7 @@ Scénario: Départage d'options avec mention médiane identique
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Scrutin
-          options:
+          candidats:
             - Option A
             - Option B
             - Option C
@@ -223,7 +223,7 @@ Scénario: Départage d'options n'ayant pas le même nombre de votes
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Scrutin
-          options:
+          candidats:
             - Option A
             - Option B
           """
@@ -261,14 +261,14 @@ Scénario: Deux scrutins avec des options nommées identiquement
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Scrutin A
-          options:
+          candidats:
             - Option 1
             - Option 2
           """
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Scrutin B
-          options:
+          candidats:
             - Option 1
             - Option 2
           """
