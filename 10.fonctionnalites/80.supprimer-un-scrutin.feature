@@ -21,7 +21,7 @@ Scénario: Suppression de mon scrutin de test sans aucun vote
            Et Léon crée un scrutin au jugement majoritaire comme suit:
           """
           titre: Test
-          options:
+          candidats:
             - sdf
             - fgh
           """
@@ -38,7 +38,7 @@ Scénario: Suppression d'un scrutin ayant des votes par un modérateur
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: BuY mY Pr0dUcT
-          options:
+          candidats:
             - C4C4
             - $3×
           """
@@ -58,7 +58,7 @@ Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Les produits de la France, moralement
-          options:
+          candidats:
             - La fission nucléaire
             - Les armes
             - Les alcools
@@ -79,7 +79,7 @@ Scénario: Échec de la suppression de mon scrutin car il contient des votes
            Et Iflop crée un scrutin au jugement majoritaire comme suit:
           """
           titre: L'éthique des entreprises
-          options:
+          candidats:
             - Monsanto
             - Total
             - Mobicoop

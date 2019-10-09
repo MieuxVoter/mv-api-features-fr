@@ -13,7 +13,7 @@ Scénario: Créer un scrutin au jugement majoritaire
         Quand Chinao crée un scrutin au jugement majoritaire comme suit:
           """
           titre: _Pain au chocolat_ ou _Chocolatine_?
-          options:
+          candidats:
             - Pain au chocolat
             - Chocolatine
             - Obi-Wan Kenobi

@@ -18,7 +18,7 @@ Scénario: Dépouillement d'un scrutin sans aucun vote
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Lieux déserts à hanter
-          options:
+          candidats:
             - La Lune
             - Le Parlement
             - Mon Imagination
@@ -35,7 +35,7 @@ Scénario: Dépouillement à tout instant
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: La Saga Star Wars
-          options:
+          candidats:
             - Épisode IV
             - Épisode V
             - Épisode VI
