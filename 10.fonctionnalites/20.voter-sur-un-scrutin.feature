@@ -3,23 +3,27 @@
 Fonctionnalité: Voter sur un scrutin au jugement majoritaire
   Dans le but d'exercer mon devoir
   Ainsi que de préserver mes droits
-  En tant que citoyen⋅ne
+  Ou simplement de participer à un choix collectif
+  En tant que citoyen⋅ne participant⋅e
   Je souhaite parfois décider avec un scrutin au jugement majoritaire
 
 
-Règle: Chaque citoyen PEUT donner UNE mention à chaque option du scrutin
+Règle: Chaque participant⋅e PEUT donner UNE mention à chaque proposition du scrutin
 
-# Idéalement, une mention ne devrait être qu'un seul mot. M'enfin…
-# La liste des mentions est sujette à débat: <lien vers débat>
-# Et puis, où est passée la médiocrité?
-# On pourrait fort bien aussi inverser l'ordre ici.  TBD
-Règle: La première et meilleure mention est "excellent⋅e", "excellente" ou "excellent"
-Règle: La seconde mention est "très bien"
-Règle: La troisième mention est "bien"
-Règle: La quatrième mention est "assez bien"
-Règle: La cinquième mention est "passable"
-Règle: La sixième mention est "insuffisant", "insuffisante" ou "insuffisant⋅e"
-Règle: La septième et pire mention est "à rejeter"
+
+# La liste des mentions est sujette à débat:
+# https://forum.mieuxvoter.fr/t/terminologie-mieuxvoter/42/76
+#Règle: La première et meilleure mention est "excellent⋅e", "excellente" ou "excellent"
+#Règle: La seconde mention est "très bien"
+#Règle: La troisième mention est "bien"
+#Règle: La quatrième mention est "assez bien"
+#Règle: La cinquième mention est "passable"
+#Règle: La sixième mention est "insuffisant", "insuffisante" ou "insuffisant⋅e"
+#Règle: La septième et pire mention est "à rejeter"
+# La "liste des mentions" pourrait-elle être nommée "Gradation" ?
+
+# La liste des mentions doit être paramétrable
+# Un scrutin doit avoir une liste de mentions par défaut
 
 Règle: Dans le cas d'un nombre pair de votes, on prend la médiane "du bas"
 
@@ -27,8 +31,8 @@ Règle: Dans le cas d'un nombre pair de votes, on prend la médiane "du bas"
 Scénario: Voter au jugement majoritaire
   Étant donné un citoyen nommé Rida
            Et un citoyen nommé Michel
-           Et une citoyenne nommée Geneviève
-           Et un citoyen nommé Steve
+           Et une citoyenne nommée Chloé
+           Et une citoyenne nommée Paloma
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Les modes de scrutin
@@ -105,15 +109,15 @@ Scénario: Nombre pair de votant⋅e⋅s
         Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les croix" devrait être:
           """
           croix de bois:
-            mention: passable
             position: 1
+            mention: passable
           croix de fer:
-            mention: insuffisant
             position: 2
+            mention: insuffisant
           """
 
 
-
+# Note: écrire des specs à plusieurs en état d'ébriété (Ballmer Peak), c'est … spécial
 Scénario: Trois votant⋅e⋅s, départage simple
   Étant donné un citoyen asymptotiquement proche de l'amploi surnommé Ric_hard
            Et une citoyenne en pleine expansion surnommée Hex
@@ -262,41 +266,41 @@ Scénario: Deux scrutins avec des options nommées identiquement
           """
           titre: Scrutin A
           candidats:
-            - Option 1
-            - Option 2
+            - Proposition 1
+            - Proposition 2
           """
            Et un scrutin au jugement majoritaire comme suit:
           """
           titre: Scrutin B
           candidats:
-            - Option 1
-            - Option 2
+            - Proposition 1
+            - Proposition 2
           """
         Quand A vote sur le scrutin au jugement majoritaire titré "Scrutin A":
           """
-          Option 1: à rejeter
-          Option 2: bien
+          Proposition 1: à rejeter
+          Proposition 2: bien
           """
            Et A vote sur le scrutin au jugement majoritaire titré "Scrutin B":
           """
-          Option 1: très bien
-          Option 2: excellent
+          Proposition 1: très bien
+          Proposition 2: excellent
           """
         Alors le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin A" devrait être:
           """
-          Option 1:
+          Proposition 1:
             mention: à rejeter
             position: 2
-          Option 2:
+          Proposition 2:
             mention: bien
             position: 1
           """
            Et le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin B" devrait être:
           """
-          Option 1:
+          Proposition 1:
             mention: très bien
             position: 2
-          Option 2:
+          Proposition 2:
             mention: excellent
             position: 1
           """
