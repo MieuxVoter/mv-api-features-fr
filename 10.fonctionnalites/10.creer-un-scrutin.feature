@@ -5,6 +5,14 @@ Fonctionnalité: Créer un scrutin au jugement majoritaire
   En tant que collectif démocratique connecté
   Nous souhaitons créer un scrutin au jugement majoritaire
 
+  Dans le but de s'organiser pour ce week-end
+  En tant que groupe d'amis
+  Nous souhaitons créer un scrutin au jugement majoritaire
+
+
+Règle: Un scrutin requiert un sujet
+Règle: Un scrutin requiert au moins deux propositions
+Règle: Un scrutin requiert au moins deux mentions
 
 
 Scénario: Créer un scrutin au jugement majoritaire
@@ -12,18 +20,15 @@ Scénario: Créer un scrutin au jugement majoritaire
 #      Sachant qu'il ne devrait y avoir aucun scrutin au jugement majoritaire dans la base de données
         Quand Chinao crée un scrutin au jugement majoritaire comme suit:
           """
-          titre: _Pain au chocolat_ ou _Chocolatine_?
-          candidats:
-            - Pain au chocolat
-            - Chocolatine
-            - Obi-Wan Kenobi
+          sujet: Repas de samedi
+          propositions:
+            - Barbecue vegan
+            - Lasagnes
+            - Aubergines à la japonaise
+          mentions:
+            - Non merci
+            - Mouais
+            - Oui
+            - Oui, oui, oui!
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
-        Quand Chinao vote sur le scrutin au jugement majoritaire titré "_Pain au chocolat_ ou _Chocolatine_?":
-          """
-          Pain au chocolat: bien
-          Chocolatine: assez bien
-          Obi-Wan Kenobi: excellent
-          """
-           Et Chinao affiche les trois dernières transactions
-        Alors Chinao devrait maintenant avoir trois votes sur le scrutin titré "_Pain au chocolat_ ou _Chocolatine_?"
