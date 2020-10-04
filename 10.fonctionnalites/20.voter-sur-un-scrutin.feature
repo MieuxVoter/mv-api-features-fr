@@ -42,7 +42,7 @@ Scénario: Voter au jugement majoritaire
             - vote par liste
             - jugement majoritaire
           """
-        Quand Rida vote sur le scrutin au jugement majoritaire titré "Les modes de scrutin":
+        Quand Rida vote sur le scrutin au jugement majoritaire intitulé "Les modes de scrutin":
           """
           uninominal à un tour:    à rejeter
           uninominal à deux tours: insuffisant
