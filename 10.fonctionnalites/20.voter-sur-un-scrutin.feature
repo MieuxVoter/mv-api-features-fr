@@ -35,29 +35,37 @@ Scénario: Voter au jugement majoritaire
            Et une citoyenne nommée Paloma
            Et un scrutin au jugement majoritaire comme suit:
           """
-          titre: Les modes de scrutin
-          candidats:
-            - uninominal à un tour
-            - uninominal à deux tours
-            - vote par liste
-            - jugement majoritaire
+          sujet: Les modes de scrutin
+          propositions:
+            - Uninominal à un tour
+            - Uninominal à deux tours
+            - Vote par liste
+            - Jugement Majoritaire
+          mentions:
+            - à rejeter
+            - insuffisant
+            - passable
+            - assez bien
+            - bien
+            - très bien
+            - excellent
           """
-        Quand Rida vote sur le scrutin au jugement majoritaire intitulé "Les modes de scrutin":
+        Quand Rida vote sur le scrutin au jugement majoritaire assujettissant "Les modes de scrutin":
           """
-          uninominal à un tour:    à rejeter
-          uninominal à deux tours: insuffisant
-          vote par liste:          passable
-          jugement majoritaire:    excellent
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: insuffisant
+          Vote par liste:          passable
+          Jugement Majoritaire:    excellent
           """
 
-           #Et Rida affiche la transaction
+           Et Rida affiche la transaction
 
         Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les modes de scrutin" devrait être:
           """
-          uninominal à un tour:    à rejeter
-          uninominal à deux tours: insuffisant
-          vote par liste:          passable
-          jugement majoritaire:    excellent
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: insuffisant
+          Vote par liste:          passable
+          Jugement Majoritaire:    excellent
           """
 
         Quand Michel vote sur le scrutin au jugement majoritaire titré "Les modes de scrutin":

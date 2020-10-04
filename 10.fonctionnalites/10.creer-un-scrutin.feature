@@ -33,3 +33,4 @@ Scénario: Créer un scrutin au jugement majoritaire
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
            Et le scrutin intitulé "Repas de samedi" devrait avoir trois propositions
+           Et Chinao affiche la transaction
