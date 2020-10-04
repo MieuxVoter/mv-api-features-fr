@@ -32,3 +32,4 @@ Scénario: Créer un scrutin au jugement majoritaire
             - Oui, oui, oui!
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
+           Et le scrutin intitulé "Repas de samedi" devrait avoir trois propositions
