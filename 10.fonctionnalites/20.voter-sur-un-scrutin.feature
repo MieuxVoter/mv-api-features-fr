@@ -50,7 +50,7 @@ Scénario: Voter au jugement majoritaire
             - très bien
             - excellent
           """
-        Quand Rida vote sur le scrutin au jugement majoritaire assujettissant "Les modes de scrutin":
+        Quand Rida vote sur le scrutin assujettissant "Les modes de scrutin":
           """
           Uninominal à un tour:    à rejeter
           Uninominal à deux tours: insuffisant
@@ -59,8 +59,9 @@ Scénario: Voter au jugement majoritaire
           """
 
            Et Rida affiche la transaction
+        Alors Rida devrait avoir quatre votes sur le scrutin intitulé "Les modes de scrutin"
 
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les modes de scrutin" devrait être:
+        Alors le dépouillement standard du scrutin assujettissant "Les modes de scrutin" devrait être:
           """
           Uninominal à un tour:    à rejeter
           Uninominal à deux tours: insuffisant
