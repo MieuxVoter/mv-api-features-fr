@@ -207,31 +207,35 @@ Scénario: Départage de propositions avec mention médiane identique
 
 
 Scénario: Départage d'options n'ayant pas le même nombre de votes
-  Étant donné un citoyen nommé Ali
-           Et un citoyen nommé Bob
+  Étant donné une citoyenne nommée Alice
+           Et un citoyen nommé Bobby
            Et un scrutin au jugement majoritaire comme suit:
           """
-          titre: Scrutin
-          candidats:
-            - Option A
-            - Option B
+          sujet: Scrutin
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - à rejeter
+            - bien
+            - excellent
           """
-        Quand Ali vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+        Quand Alice vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: bien
-          Option B: bien
+          Proposition A: bien
+          Proposition B: bien
           """
-           Et Bob vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+           Et Bobby vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: bien
+          Proposition A: bien
           """
-           Et Bob ne donne pas son avis sur l'autre option
-        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin" devrait être:
+           Et Bobby ne donne pas son avis sur l'autre proposition
+        Alors le dépouillement standard du scrutin intitulé "Scrutin" devrait être:
           """
-          Option A:
+          Proposition A:
             mention: bien
             position: 1
-          Option B:
+          Proposition B:
             mention: à rejeter
             position: 2
           """
@@ -243,49 +247,49 @@ Scénario: Départage d'options n'ayant pas le même nombre de votes
 # Comme nous souhaitons enlever cette limitation, nous la testons.
 # Comme ce scénario n'est pas très intéressant, mais utile pour développer
 # et surtout pour éviter de régresser, il est taggué VIGIL.
-@vigil
-Scénario: Deux scrutins avec des options nommées identiquement
-  Étant donnée une citoyenne nommée A
-           #Et une citoyenne nommée B
-           Et un scrutin au jugement majoritaire comme suit:
-          """
-          titre: Scrutin A
-          candidats:
-            - Proposition 1
-            - Proposition 2
-          """
-           Et un scrutin au jugement majoritaire comme suit:
-          """
-          titre: Scrutin B
-          candidats:
-            - Proposition 1
-            - Proposition 2
-          """
-        Quand A vote sur le scrutin au jugement majoritaire intitulé "Scrutin A":
-          """
-          Proposition 1: à rejeter
-          Proposition 2: bien
-          """
-           Et A vote sur le scrutin au jugement majoritaire intitulé "Scrutin B":
-          """
-          Proposition 1: très bien
-          Proposition 2: excellent
-          """
-        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin A" devrait être:
-          """
-          Proposition 1:
-            mention: à rejeter
-            position: 2
-          Proposition 2:
-            mention: bien
-            position: 1
-          """
-           Et le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin B" devrait être:
-          """
-          Proposition 1:
-            mention: très bien
-            position: 2
-          Proposition 2:
-            mention: excellent
-            position: 1
-          """
+#@vigil
+#Scénario: Deux scrutins avec des options nommées identiquement
+#  Étant donnée une citoyenne nommée A
+#           #Et une citoyenne nommée B
+#           Et un scrutin au jugement majoritaire comme suit:
+#          """
+#          titre: Scrutin A
+#          candidats:
+#            - Proposition 1
+#            - Proposition 2
+#          """
+#           Et un scrutin au jugement majoritaire comme suit:
+#          """
+#          titre: Scrutin B
+#          candidats:
+#            - Proposition 1
+#            - Proposition 2
+#          """
+#        Quand A vote sur le scrutin au jugement majoritaire intitulé "Scrutin A":
+#          """
+#          Proposition 1: à rejeter
+#          Proposition 2: bien
+#          """
+#           Et A vote sur le scrutin au jugement majoritaire intitulé "Scrutin B":
+#          """
+#          Proposition 1: très bien
+#          Proposition 2: excellent
+#          """
+#        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin A" devrait être:
+#          """
+#          Proposition 1:
+#            mention: à rejeter
+#            position: 2
+#          Proposition 2:
+#            mention: bien
+#            position: 1
+#          """
+#           Et le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin B" devrait être:
+#          """
+#          Proposition 1:
+#            mention: très bien
+#            position: 2
+#          Proposition 2:
+#            mention: excellent
+#            position: 1
+#          """
