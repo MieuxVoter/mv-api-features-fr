@@ -20,10 +20,18 @@ Scénario: Suppression de mon scrutin de test sans aucun vote
   Étant donné un citoyen nommé Léon
            Et Léon crée un scrutin au jugement majoritaire comme suit:
           """
-          titre: Test
-          candidats:
+          sujet: Test
+          propositions:
             - sdf
             - fgh
+          mentions:
+            - à rejeter
+            - insuffisant
+            - passable
+            - assez bien
+            - bien
+            - très bien
+            - excellent
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
         Quand Léon tente de supprimer le scrutin titré "Test"
@@ -32,24 +40,24 @@ Scénario: Suppression de mon scrutin de test sans aucun vote
 
 
 
-Scénario: Suppression d'un scrutin ayant des votes par un modérateur
-  Étant donné un modérateur nommé Georges
-           Et un citoyen nommé Spammeur
-           Et un scrutin au jugement majoritaire comme suit:
-          """
-          titre: BuY mY Pr0dUcT
-          candidats:
-            - C4C4
-            - $3×
-          """
-           Et Spammeur vote sur le scrutin titré "BuY mY Pr0dUcT":
-          """
-          C4C4 : à rejeter
-          $3×  : passable
-          """
-        Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
-        Alors Georges devrait réussir
-           Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
+#Scénario: Suppression d'un scrutin ayant des votes par un modérateur
+#  Étant donné un modérateur nommé Georges
+#           Et un citoyen nommé Spammeur
+#           Et un scrutin au jugement majoritaire comme suit:
+#          """
+#          titre: BuY mY Pr0dUcT
+#          candidats:
+#            - C4C4
+#            - $3×
+#          """
+#           Et Spammeur vote sur le scrutin titré "BuY mY Pr0dUcT":
+#          """
+#          C4C4 : à rejeter
+#          $3×  : passable
+#          """
+#        Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
+#        Alors Georges devrait réussir
+#           Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
 
 
 
@@ -57,14 +65,21 @@ Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier
   Étant donné un citoyen nommé Troll
            Et un scrutin au jugement majoritaire comme suit:
           """
-          titre: Les produits de la France, moralement
-          candidats:
+          sujet: Les produits de la France, moralement
+          propositions:
             - La fission nucléaire
             - Les armes
+            - Les avions
             - Les alcools
             - Les fromages
             - Les logiciels
             - La commune
+            - Le Jugement Majoritaire
+          mentions:
+            - obscène
+            - dérangeant
+            - passable
+            - bien
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
         Quand Troll tente de supprimer le scrutin titré "Les produits de la France, moralement"
@@ -78,11 +93,19 @@ Scénario: Échec de la suppression de mon scrutin car il contient des votes
            Et un citoyenne nommée Doxa
            Et Iflop crée un scrutin au jugement majoritaire comme suit:
           """
-          titre: L'éthique des entreprises
-          candidats:
+          sujet: L'éthique des entreprises
+          propositions:
             - Monsanto
             - Total
             - Mobicoop
+          mentions:
+            - à rejeter
+            - insuffisant
+            - passable
+            - assez bien
+            - bien
+            - très bien
+            - excellent
           """
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
            Et Doxa vote sur le scrutin titré "L'éthique des entreprises":
