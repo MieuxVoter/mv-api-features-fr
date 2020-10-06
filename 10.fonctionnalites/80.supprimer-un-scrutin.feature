@@ -41,24 +41,27 @@ Scénario: Suppression de mon scrutin de test sans aucun vote
 
 
 
-#Scénario: Suppression d'un scrutin ayant des votes par un modérateur
-#  Étant donné un modérateur nommé Georges
-#           Et un citoyen nommé Spammeur
-#           Et un scrutin au jugement majoritaire comme suit:
-#          """
-#          titre: BuY mY Pr0dUcT
-#          candidats:
-#            - C4C4
-#            - $3×
-#          """
-#           Et Spammeur vote sur le scrutin titré "BuY mY Pr0dUcT":
-#          """
-#          C4C4 : à rejeter
-#          $3×  : passable
-#          """
-#        Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
-#        Alors Georges devrait réussir
-#           Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
+Scénario: Suppression d'un scrutin ayant des votes par un modérateur
+  Étant donné un modérateur honorable nommé Georges
+           Et un citoyen malicieux surnommé Spammeur
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: BuY mY Pr0dUcT
+          propositions:
+            - C4C4
+            - $3×
+          mentions:
+            - Blu3P1lL
+            - dRuGz
+          """
+           Et Spammeur vote sur le scrutin titré "BuY mY Pr0dUcT":
+          """
+          C4C4 : à rejeter
+          $3×  : passable
+          """
+        Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
+        Alors Georges devrait réussir
+           Et il ne devrait maintenant y avoir aucun scrutin au jugement majoritaire dans la base de données
 
 
 
