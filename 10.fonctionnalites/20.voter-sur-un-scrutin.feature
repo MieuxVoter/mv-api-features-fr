@@ -23,16 +23,17 @@ Règle: Chaque participant⋅e PEUT donner UNE mention à chaque proposition du 
 # La "liste des mentions" pourrait-elle être nommée "Gradation" ?
 
 # La liste des mentions doit être paramétrable
-# Un scrutin doit avoir une liste de mentions par défaut
+# Un scrutin doit avoir une liste de mentions par défaut (?!)
 
-Règle: Dans le cas d'un nombre pair de votes, on prend la médiane "du bas"
+Règle: Dans le cas d'un nombre pair de votes, on prend la "pire" médiane
+
 
 
 Scénario: Voter au jugement majoritaire
   Étant donné un citoyen nommé Rida
            Et un citoyen nommé Michel
+           Et une citoyenne nommée Maria
            Et une citoyenne nommée Chloé
-           Et une citoyenne nommée Paloma
            Et un scrutin au jugement majoritaire comme suit:
           """
           sujet: Les modes de scrutin
@@ -69,28 +70,36 @@ Scénario: Voter au jugement majoritaire
           Jugement Majoritaire:    excellent
           """
 
-        Quand Michel vote sur le scrutin au jugement majoritaire titré "Les modes de scrutin":
+        Quand Michel vote sur le scrutin au jugement majoritaire intitulé "Les modes de scrutin":
           """
-          uninominal à un tour:    à rejeter
-          uninominal à deux tours: à rejeter
-          vote par liste:          assez bien
-          jugement majoritaire:    excellent
-          """
-
-        Quand Steve vote sur le scrutin au jugement majoritaire titré "Les modes de scrutin":
-          """
-          uninominal à un tour:    à rejeter
-          uninominal à deux tours: à rejeter
-          vote par liste:          assez bien
-          jugement majoritaire:    excellent
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: à rejeter
+          Vote par liste:          assez bien
+          Jugement Majoritaire:    excellent
           """
 
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les modes de scrutin" devrait être:
+        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Les modes de scrutin" devrait être:
           """
-          uninominal à un tour:    à rejeter
-          uninominal à deux tours: à rejeter
-          vote par liste:          assez bien
-          jugement majoritaire:    excellent
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: à rejeter
+          Vote par liste:          passable
+          Jugement Majoritaire:    excellent
+          """
+
+        Quand Maria vote sur le scrutin au jugement majoritaire intitulé "Les modes de scrutin":
+          """
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: à rejeter
+          Vote par liste:          assez bien
+          Jugement Majoritaire:    excellent
+          """
+
+        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Les modes de scrutin" devrait être:
+          """
+          Uninominal à un tour:    à rejeter
+          Uninominal à deux tours: à rejeter
+          Vote par liste:          assez bien
+          Jugement Majoritaire:    excellent
           """
 
 
@@ -100,79 +109,38 @@ Scénario: Nombre pair de votant⋅e⋅s
            Et un citoyen surnommé Flip
            Et un scrutin au jugement majoritaire comme suit:
           """
-          titre: Les croix
-          candidats:
+          sujet: Le travail des croix du crou
+          propositions:
             - croix de bois
             - croix de fer
+          mentions:
+            - chômage
+            - gratin dauphinois
+            - comme pour un album d'Astérix
           """
-        Quand Stup vote sur le scrutin au jugement majoritaire titré "Les croix":
+        Quand Stup vote sur le scrutin au jugement majoritaire assujettissant "Le travail des croix du crou":
           """
-          croix de bois: bien
-          croix de fer:  insuffisant
+          croix de bois: chômage
+          croix de fer:  comme pour un album d'Astérix
           """
-        Quand Flip vote sur le scrutin au jugement majoritaire titré "Les croix":
+        Quand Flip vote sur le scrutin au jugement majoritaire assujettissant "Le travail des croix du crou":
           """
-          croix de bois: passable
-          croix de fer:  excellent
+          croix de bois: gratin dauphinois
+          croix de fer:  gratin dauphinois
           """
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les croix" devrait être:
+        Alors le dépouillement standard du scrutin assujettissant "Le travail des croix du crou" devrait être:
           """
           croix de bois:
-            position: 1
-            mention: passable
+            position: 2
+            mention: chômage
           croix de fer:
-            position: 2
-            mention: insuffisant
-          """
-
-
-# Note: écrire des specs à plusieurs en état d'ébriété (Ballmer Peak), c'est … spécial
-Scénario: Trois votant⋅e⋅s, départage simple
-  Étant donné un citoyen asymptotiquement proche de l'amploi surnommé Ric_hard
-           Et une citoyenne en pleine expansion surnommée Hex
-           Et un citoyen très fatigué surnommé Adre
-           Et un scrutin au jugement majoritaire comme suit:
-          """
-          titre: Les whiskies
-          candidats:
-            - suntory
-            - mccalan
-            - les chiens
-          """
-        Quand Ric_hard vote sur le scrutin au jugement majoritaire titré "Les whiskies":
-          """
-          mccalan: bien
-          suntory: bien
-          les chiens: bien
-          """
-        Quand Adre vote sur le scrutin au jugement majoritaire titré "Les whiskies":
-          """
-          mccalan: assez bien
-          suntory: assez bien
-          les chiens: très bien
-          """
-        Quand Hex vote sur le scrutin au jugement majoritaire titré "Les whiskies":
-          """
-          mccalan: assez bien
-          suntory: très bien
-          les chiens: excellent
-          """
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Les whiskies" devrait être:
-          """
-          mccalan:
-            mention: assez bien
-            position: 3
-          suntory:
-            mention: bien
-            position: 2
-          les chiens:
-            mention: très bien
             position: 1
+            mention: gratin dauphinois
           """
 
 
 
-Scénario: Départage d'options avec mention médiane identique
+Scénario: Départage de propositions avec mention médiane identique
   Étant donné un citoyen surnommé Ali
            Et un citoyen surnommé Bob
            Et une citoyenne surnommée Cho
@@ -180,51 +148,59 @@ Scénario: Départage d'options avec mention médiane identique
            Et une citoyenne surnommée Eva
            Et un scrutin au jugement majoritaire comme suit:
           """
-          titre: Scrutin
-          candidats:
-            - Option A
-            - Option B
-            - Option C
+          sujet: Scrutin
+          propositions:
+            - Proposition A
+            - Proposition B
+            - Proposition C
+          mentions:
+            - à rejeter
+            - insuffisant
+            - passable
+            - assez bien
+            - bien
+            - très bien
+            - excellent
           """
-        Quand Ali vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Ali vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: à rejeter
-          Option B: à rejeter
-          Option C: à rejeter
+          Proposition A: à rejeter
+          Proposition B: à rejeter
+          Proposition C: à rejeter
           """
-        Quand Bob vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Bob vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: insuffisant
-          Option B: bien
-          Option C: bien
+          Proposition A: insuffisant
+          Proposition B: bien
+          Proposition C: bien
           """
-        Quand Cho vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Cho vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: bien
-          Option B: bien
-          Option C: bien
+          Proposition A: bien
+          Proposition B: bien
+          Proposition C: bien
           """
-        Quand Dia vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Dia vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: bien
-          Option B: bien
-          Option C: bien
+          Proposition A: bien
+          Proposition B: bien
+          Proposition C: bien
           """
-        Quand Eva vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Eva vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
-          Option A: bien
-          Option B: bien
-          Option C: excellent
+          Proposition A: bien
+          Proposition B: bien
+          Proposition C: excellent
           """
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin" devrait être:
+        Alors le dépouillement standard du scrutin intitulé "Scrutin" devrait être:
           """
-          Option A:
+          Proposition A:
             mention: bien
             position: 3
-          Option B:
+          Proposition B:
             mention: bien
             position: 2
-          Option C:
+          Proposition C:
             mention: bien
             position: 1
           """
@@ -240,17 +216,17 @@ Scénario: Départage d'options n'ayant pas le même nombre de votes
             - Option A
             - Option B
           """
-        Quand Ali vote sur le scrutin au jugement majoritaire titré "Scrutin":
+        Quand Ali vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
           Option A: bien
           Option B: bien
           """
-           Et Bob vote sur le scrutin au jugement majoritaire titré "Scrutin":
+           Et Bob vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
           """
           Option A: bien
           """
            Et Bob ne donne pas son avis sur l'autre option
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin" devrait être:
+        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin" devrait être:
           """
           Option A:
             mention: bien
@@ -285,17 +261,17 @@ Scénario: Deux scrutins avec des options nommées identiquement
             - Proposition 1
             - Proposition 2
           """
-        Quand A vote sur le scrutin au jugement majoritaire titré "Scrutin A":
+        Quand A vote sur le scrutin au jugement majoritaire intitulé "Scrutin A":
           """
           Proposition 1: à rejeter
           Proposition 2: bien
           """
-           Et A vote sur le scrutin au jugement majoritaire titré "Scrutin B":
+           Et A vote sur le scrutin au jugement majoritaire intitulé "Scrutin B":
           """
           Proposition 1: très bien
           Proposition 2: excellent
           """
-        Alors le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin A" devrait être:
+        Alors le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin A" devrait être:
           """
           Proposition 1:
             mention: à rejeter
@@ -304,7 +280,7 @@ Scénario: Deux scrutins avec des options nommées identiquement
             mention: bien
             position: 1
           """
-           Et le dépouillement standard du scrutin au jugement majoritaire titré "Scrutin B" devrait être:
+           Et le dépouillement standard du scrutin au jugement majoritaire intitulé "Scrutin B" devrait être:
           """
           Proposition 1:
             mention: très bien
