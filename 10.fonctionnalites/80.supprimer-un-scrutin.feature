@@ -1,9 +1,10 @@
 #language: fr
 @fr
-Fonctionnalité: Supprimer un scrutin au jugement majoritaire (liquide)
+Fonctionnalité: Supprimer un scrutin au jugement majoritaire
   Dans le but de modérer un comportement abusif
   En tant que modératrice
   Je souhaite supprimer un scrutin
+
   Dans le but d'annuler un scrutin
   En tant qu'auteur du scrutin
   Je souhaite supprimer un scrutin
@@ -88,6 +89,32 @@ Scénario: Échec de la suppression d'un scrutin si on a aucun droit particulier
 
 
 
+Scénario: Échec de la suppression du scrutin de quelqu'un d'autre
+  Étant donné un citoyen nommé Chloé
+           Et un citoyen surnommé Vilain
+        Quand Chloé crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: L'urgence des chantiers de MieuxVoter
+          propositions:
+            - Opération Présidentielle 2022
+            - App.MieuxVoter.fr
+            - Wikipedia taskforce
+            - Librairies JM (Javascript, Python, PHP, Ruby, …)
+          mentions:
+            - à oublier
+            - peut attendre
+            - à faire
+            - urgent
+            - très urgent
+            - urgentissime
+          """
+        Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
+        Quand Vilain tente de supprimer le scrutin assujettissant "L'urgence des chantiers de MieuxVoter"
+        Alors Vilain devrait échouer
+           Et il devrait encore y avoir un scrutin au jugement majoritaire dans la base de données
+
+
+
 Scénario: Échec de la suppression de mon scrutin car il contient des votes
   Étant donné un citoyen nommé Iflop
            Et un citoyenne nommée Doxa
@@ -115,6 +142,6 @@ Scénario: Échec de la suppression de mon scrutin car il contient des votes
           Mobicoop : très bien
           """
          Mais Iflop n'aime pas ça
-        Alors Iflop tente de supprimer le scrutin titré "L'éthique des entreprises"
+        Alors Iflop tente de supprimer le scrutin assujettissant "L'éthique des entreprises"
          Mais Iflop devrait échouer
            Et il devrait encore y avoir un scrutin au jugement majoritaire dans la base de données
