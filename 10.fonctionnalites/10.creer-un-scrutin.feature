@@ -11,9 +11,11 @@ Fonctionnalité: Créer un scrutin au jugement majoritaire
 
 
 Règle: Un scrutin requiert un sujet
-Règle: Un scrutin requiert au moins deux propositions
-Règle: Un scrutin requiert au moins deux mentions
-Règle: Un scrutin accepte au maximum seize mentions
+Règle: Un scrutin requiert au moins deux (2) propositions
+# Discuss: https://framagit.org/limaju/limaju-server-symfony/-/issues/9
+Règle: Un scrutin accepte au plus ??? (?) propositions
+Règle: Un scrutin requiert au moins deux (2) mentions
+Règle: Un scrutin accepte au plus seize (16) mentions
 
 
 Scénario: Créer un scrutin au jugement majoritaire
@@ -32,10 +34,27 @@ Scénario: Créer un scrutin au jugement majoritaire
             - Oui
             - Oui, oui, oui!
           """
+#           Et Chinao affiche la transaction
         Alors il devrait maintenant y avoir un scrutin au jugement majoritaire dans la base de données
            Et le scrutin intitulé "Repas de samedi" devrait avoir trois propositions
            Et le scrutin intitulé "Repas de samedi" devrait avoir quatre mentions
-#           Et Chinao affiche la transaction
+
+
+
+Scénario: Échouer à créer un scrutin avec trop peu de propositions
+  Étant donné une citoyenne surnommée Pofi
+        Quand Pofi tente de créer un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin biaisé
+          propositions:
+            - Mon Favori
+          mentions:
+            - Bien
+            - Excellent
+          """
+        Alors Pofi devrait échouer
+#           Et Pofi affiche la transaction
+           Et il devrait toujours n'y avoir aucun scrutin dans la base de données
 
 
 
@@ -85,5 +104,5 @@ Scénario: Échouer à créer un scrutin avec trop de mentions (17 mentions)
           """
         Alors Perle devrait échouer
 #           Et Perle affiche la transaction
-           Et il ne devrait encore y avoir aucun scrutin dans la base de données
+           Et il devrait toujours n'y avoir aucun scrutin dans la base de données
 
