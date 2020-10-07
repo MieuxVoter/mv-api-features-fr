@@ -59,7 +59,7 @@ Scénario: Voter au jugement majoritaire
           Jugement Majoritaire:    excellent
           """
 
-           Et Rida affiche la transaction
+#           Et Rida affiche la transaction
         Alors Rida devrait avoir quatre votes sur le scrutin intitulé "Les modes de scrutin"
 
         Alors le dépouillement standard du scrutin assujettissant "Les modes de scrutin" devrait être:
