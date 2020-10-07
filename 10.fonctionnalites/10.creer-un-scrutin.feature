@@ -13,6 +13,7 @@ Fonctionnalité: Créer un scrutin au jugement majoritaire
 Règle: Un scrutin requiert un sujet
 Règle: Un scrutin requiert au moins deux propositions
 Règle: Un scrutin requiert au moins deux mentions
+Règle: Un scrutin accepte au maximum seize mentions
 
 
 Scénario: Créer un scrutin au jugement majoritaire
@@ -50,4 +51,39 @@ Scénario: Échouer à créer un scrutin avec trop peu de mentions
             - Accepter
           """
         Alors Paresse devrait échouer
+#           Et Paresse affiche la transaction
+           Et il ne devrait encore y avoir aucun scrutin dans la base de données
+
+
+
+Scénario: Échouer à créer un scrutin avec trop de mentions (17 mentions)
+  Étant donné une citoyenne enthousiaste surnommée Perle
+        Quand Perle tente de créer un scrutin comme suit:
+          """
+          sujet: Scrutin trop précis
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - Mention A
+            - Mention B
+            - Mention C
+            - Mention E
+            - Mention D
+            - Mention F
+            - Mention G
+            - Mention H
+            - Mention I
+            - Mention J
+            - Mention K
+            - Mention L
+            - Mention M
+            - Mention N
+            - Mention O
+            - Mention P
+            - Mention Q
+          """
+        Alors Perle devrait échouer
+#           Et Perle affiche la transaction
+           Et il ne devrait encore y avoir aucun scrutin dans la base de données
 
