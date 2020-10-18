@@ -43,6 +43,7 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
           accès: privé
           """
         Alors Jean-Luc devrait réussir
+           Et Jean-Luc affiche la transaction
         Quand Marianne tente de voter sur le scrutin de "La Primaire 2022 de la France Insoumise":
           """
           Jean-Luc Mélenchon: Très Bien
