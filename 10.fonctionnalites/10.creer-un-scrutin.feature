@@ -34,7 +34,7 @@ Scénario: Créer un scrutin au jugement majoritaire
             - Lasagnes
             - Aubergines à la japonaise
           mentions:
-            - Non merci
+            - Non, merci
             - Mouais
             - Oui
             - Oui, oui, oui!
