@@ -51,6 +51,7 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
         Alors Marianne devrait échouer
         Quand Jean-Luc génère 10 invitations pour le scrutin de "La Primaire 2022 de la France Insoumise"
         Alors Jean-Luc devrait réussir
+           Et Jean-Luc devrait avoir 10 invitations
         # …
         # Au choix!
 #        Quand Jean-Luc donne à Marianne l'invitation N°1
