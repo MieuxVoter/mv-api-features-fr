@@ -49,11 +49,18 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
           Jean-Luc Mélenchon: Très Bien
           """
         Alors Marianne devrait échouer
+           Et Jean-Luc ne devrait avoir aucune invitation
         Quand Jean-Luc génère 10 invitations pour le scrutin de "La Primaire 2022 de la France Insoumise"
         Alors Jean-Luc devrait réussir
            Et Jean-Luc devrait avoir 10 invitations
         # …
         # Au choix!
+        Quand Marianne accepte l'invitation N°1 de Jean-Luc
+        Quand Marianne tente de voter sur le scrutin de "La Primaire 2022 de la France Insoumise":
+          """
+          Jean-Luc Mélenchon: Très Bien
+          """
+        Alors Marianne devrait réussir
 #        Quand Jean-Luc donne à Marianne l'invitation N°1
         # …
 #        Quand Marianne tente de voter sur ce scrutin avec l'invitation N°1 de Jean-Luc:
