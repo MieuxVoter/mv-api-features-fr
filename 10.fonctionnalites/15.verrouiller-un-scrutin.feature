@@ -69,6 +69,40 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
 #        """
 
 
+Scénario: Limiter le nombre d'invitations générables (cent? mille?)
+  Étant donné un citoyen nommé Jean-Luc
+           Et Jean-Luc crée un scrutin comme suit:
+          """
+          sujet: La Primaire FI 2022
+          propositions:
+          - Jean-Luc Mélenchon
+          - Manon Aubry
+          - Adrien Quatennens
+          - Caroline Fiat
+          - François Ruffin
+          - Danièle Obono
+          - Jean-Hughes Ratenon
+          - Clémentine Autain
+          - Ugo Bernalicis
+          - Charlotte Girard
+          mentions:
+          - Insuffisant
+          - Passable
+          - Bien
+          - Très Bien
+          - Excellent
+          accès: privé
+          """
+        Quand Jean-Luc génère dix invitations pour le scrutin de "La Primaire FI 2022"
+        Alors Jean-Luc devrait réussir
+           Et Jean-Luc devrait avoir dix invitations
+        Quand Jean-Luc génère cent invitations pour le scrutin de "La Primaire FI 2022"
+        Alors Jean-Luc devrait réussir
+         Mais Jean-Luc devrait avoir cent invitations
+        # Car les dix premières invitations sont les mêmes
+        Quand Jean-Luc génère deux cent invitations pour le scrutin de "La Primaire FI 2022"
+        Alors Jean-Luc devrait réussir
+         Mais Jean-Luc ne devrait avoir que cent invitations
 
 
 
