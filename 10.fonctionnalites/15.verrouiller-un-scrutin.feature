@@ -14,8 +14,10 @@ Fonctionnalité: Verrouiller un scrutin par invitations
 #  Ce jeton doit me permettre de retrouver le scrutin.
 #  Ce jeton protégé par une passphrase doit me permettre de consulter/modifier mon vote.
 
-
+# Pas très propre, mais on a les trois scénarios en un pour l'instant.
 Scénario: Verrouiller un scrutin par (jetons d') invitations
+Scénario: Échouer à participer à un scrutin par invitation
+Scénario: Participer à un scrutin par invitation
   Étant donné un citoyen nommé Jean-Luc
            Et une citoyenne nommée Marianne
         Quand Jean-Luc crée un scrutin comme suit:
@@ -49,12 +51,10 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
           Jean-Luc Mélenchon: Très Bien
           """
         Alors Marianne devrait échouer
-           Et Jean-Luc ne devrait avoir aucune invitation
+# Sachant que Jean-Luc ne devrait avoir aucune invitation
         Quand Jean-Luc génère 10 invitations pour le scrutin de "La Primaire 2022 de la France Insoumise"
         Alors Jean-Luc devrait réussir
            Et Jean-Luc devrait avoir 10 invitations
-        # …
-        # Au choix!
         Quand Marianne accepte l'invitation N°1 de Jean-Luc
         Quand Marianne tente de voter sur le scrutin de "La Primaire 2022 de la France Insoumise":
           """
@@ -128,9 +128,11 @@ Scénario: Échouer à générer des invitations pour un scrutin dont on est pas
          Mais Marine devrait échouer
 
 
-Scénario: Participer à un scrutin par invitation
-Scénario: Distribuer des invitations à un scrutin
-Scénario: Échouer à participer à un scrutin par invitation
+Scénario: Distribuer des invitations à un scrutin soi-même
+Scénario: Distribuer des invitations à un scrutin par courriel
+Scénario: Distribuer des invitations à un scrutin par SMS
+  # → Je pense que ça ira dans sa propre feature distribuer-des-invitations
+
 
 #Fonctionnalité: Création d'un compte
 #
