@@ -61,12 +61,6 @@ Scénario: Verrouiller un scrutin par (jetons d') invitations
           Jean-Luc Mélenchon: Très Bien
           """
         Alors Marianne devrait réussir
-#        Quand Jean-Luc donne à Marianne l'invitation N°1
-        # …
-#        Quand Marianne tente de voter sur ce scrutin avec l'invitation N°1 de Jean-Luc:
-#        """
-#        Jean-Luc Mélenchon: Très Bien
-#        """
 
 
 Scénario: Limiter le nombre d'invitations générables (cent? mille?)
@@ -124,11 +118,8 @@ Scénario: Échouer à générer des invitations pour un scrutin dont on est pas
           - Ugo Bernalicis
           - Charlotte Girard
           mentions:
-          - Insuffisant
-          - Passable
-          - Bien
-          - Très Bien
-          - Excellent
+          - Non
+          - Oui
           accès: privé
           """
          Mais Marine n'est pas invitée
