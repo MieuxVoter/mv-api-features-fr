@@ -103,7 +103,38 @@ Scénario: Limiter le nombre d'invitations générables (cent? mille?)
         Quand Jean-Luc génère deux cent invitations pour le scrutin de "La Primaire FI 2022"
         Alors Jean-Luc devrait réussir
          Mais Jean-Luc ne devrait avoir que cent invitations
+        # Car les cent premières invitations sont les mêmes
 
+
+Scénario: Échouer à générer des invitations pour un scrutin dont on est pas l'auteur
+  Étant donné un citoyen nommé Jean-Luc
+           Et une citoyenne nommée Marine
+           Et Jean-Luc crée un scrutin comme suit:
+          """
+          sujet: La Primaire FI 2022
+          propositions:
+          - Jean-Luc Mélenchon
+          - Manon Aubry
+          - Adrien Quatennens
+          - Caroline Fiat
+          - François Ruffin
+          - Danièle Obono
+          - Jean-Hughes Ratenon
+          - Clémentine Autain
+          - Ugo Bernalicis
+          - Charlotte Girard
+          mentions:
+          - Insuffisant
+          - Passable
+          - Bien
+          - Très Bien
+          - Excellent
+          accès: privé
+          """
+         Mais Marine n'est pas invitée
+           Et Marine n'aime pas ça
+        Alors Marine tente de générer une invitation pour le scrutin de "La Primaire FI 2022"
+         Mais Marine devrait échouer
 
 
 Scénario: Participer à un scrutin par invitation
