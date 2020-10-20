@@ -10,6 +10,9 @@ Fonctionnalité: Verrouiller un scrutin par invitations
   Je peux générer une liste de jeton : par email/par twitter (sic)/par sms
 
 
+Règle: Une invitation ne peut être acceptée que par un⋅e seul⋅e participant⋅e
+
+
 #  En tant que visiteur, je suis titulaire d'un jeton d'invitation à participer à un scrutin.
 #  Ce jeton doit me permettre de retrouver le scrutin.
 #  Ce jeton protégé par une passphrase doit me permettre de consulter/modifier mon vote.
