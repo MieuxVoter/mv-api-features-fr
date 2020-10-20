@@ -13,13 +13,19 @@ Fonctionnalité: Verrouiller un scrutin par invitations
 Règle: Une invitation ne peut être acceptée que par un⋅e seul⋅e participant⋅e
 
 
+# Drafts
+Règle: Il faut une invitation pour participer à un scrutin privé
+Règle: Il me faut une invitation pour participer à un scrutin privé, quelque soit mon rôle
+Règle: On ne peut pas participer à un scrutin privé sans invitation
+########
+
 #  En tant que visiteur, je suis titulaire d'un jeton d'invitation à participer à un scrutin.
 #  Ce jeton doit me permettre de retrouver le scrutin.
 #  Ce jeton protégé par une passphrase doit me permettre de consulter/modifier mon vote.
 
 # Pas très propre, mais on a les trois scénarios en un pour l'instant.
-Scénario: Verrouiller un scrutin par (jetons d') invitations
-Scénario: Échouer à participer à un scrutin par invitation
+Scénario: Créer un scrutin privé et des invitations
+Scénario: Échouer à participer frauduleusement à un scrutin privé
 Scénario: Participer à un scrutin par invitation
   Étant donné un citoyen nommé Jean-Luc
            Et une citoyenne nommée Marianne
@@ -129,6 +135,43 @@ Scénario: Échouer à générer des invitations pour un scrutin dont on est pas
            Et Marine n'aime pas ça
         Alors Marine tente de générer une invitation pour le scrutin de "La Primaire FI 2022"
          Mais Marine devrait échouer
+
+
+Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'autre
+  Étant donné un citoyen nommé Jean-Luc
+           Et une citoyenne nommée Sofia
+           Et un citoyen surnommé Sbire
+           Et Jean-Luc crée un scrutin comme suit:
+          """
+          sujet: Votre Politicien⋅ne Peertubeur⋅e Favori⋅te
+          propositions:
+          - Jean-Luc Mélenchon
+          - Caroline Fiat
+          - François Ruffin
+          - Danièle Obono
+          - Jean-Hughes Ratenon
+          - Clémentine Autain
+          - Ugo Bernalicis
+          - Charlotte Girard
+          mentions:
+          - Je ne connais pas
+          - Je connais
+          - Je connais depuis peu, ça m'intéresse un peu
+          - Je connais et j'aime plutôt bien
+          - Je connais et j'aime beaucoup
+          - FAVORI !
+          - FAVORITE !
+          accès: privé
+          """
+           Et Jean-Luc génère deux invitations pour le scrutin de "Votre Politicien⋅ne Peertubeur⋅e Favori⋅te"
+           Et Sofia accepte l'invitation N°1 de Jean-Luc
+         Mais Sbire dérobe Jean-Luc sous couvert d'une perquisition
+           Et Jean-Luc n'aime pas ça
+           Et Sofia n'aime pas ça
+           Et Nous n'aimons pas ça
+           Et Sbire tente d'accepter l'invitation N°1 de Jean-Luc
+         Mais Sbire devrait échouer
+           Et Sbire affiche la transaction
 
 
 Scénario: Distribuer des invitations à un scrutin soi-même
