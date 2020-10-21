@@ -1,7 +1,7 @@
 #language: fr
 @fr
 @wip
-Fonctionnalité: Verrouiller un scrutin par invitations
+Fonctionnalité: Privatiser un scrutin par invitations
   Dans le but de "sécuriser" mon scrutin
   En tant qu'organisateur⋅e
   Je veux le rendre accessible sur invitation seulement
@@ -171,6 +171,9 @@ Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'
            Et Sbire tente d'accepter l'invitation N°1 de Jean-Luc
          Mais Sbire devrait échouer
         # Car l'invitation a déjà été acceptée par Sofia
+
+
+Scénario: Brûler les invitations non-acceptées
 
 
 Scénario: Distribuer des invitations à un scrutin soi-même
