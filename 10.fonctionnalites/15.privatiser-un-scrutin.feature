@@ -54,7 +54,6 @@ Scénario: Participer à un scrutin par invitation
           accès: privé
           """
         Alors Jean-Luc devrait réussir
-           Et Jean-Luc affiche la transaction
         Quand Marianne tente de voter sur le scrutin de "La Primaire 2022 de la France Insoumise":
           """
           Jean-Luc Mélenchon: Très Bien
@@ -159,8 +158,8 @@ Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'
           - Je connais depuis peu, ça m'intéresse un peu
           - Je connais et j'aime plutôt bien
           - Je connais et j'aime beaucoup
-          - FAVORI !
-          - FAVORITE !
+          - C'est mon FAVORI !
+          - C'est ma FAVORITE !
           accès: privé
           """
            Et Jean-Luc génère deux invitations pour le scrutin de "Votre Politicien⋅ne Peertubeur⋅e Favori⋅te"
@@ -168,10 +167,10 @@ Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'
          Mais Sbire dérobe Jean-Luc sous couvert d'une perquisition
            Et Jean-Luc n'aime pas ça
            Et Sofia n'aime pas ça
-           Et Nous n'aimons pas ça
+           Et La France n'aime pas ça
            Et Sbire tente d'accepter l'invitation N°1 de Jean-Luc
          Mais Sbire devrait échouer
-           Et Sbire affiche la transaction
+        # Car l'invitation a déjà été acceptée par Sofia
 
 
 Scénario: Distribuer des invitations à un scrutin soi-même
