@@ -1,13 +1,16 @@
 #language: fr
 @fr
-@wip
 Fonctionnalité: Privatiser un scrutin par invitations
   Dans le but de "sécuriser" mon scrutin
   En tant qu'organisateur⋅e
   Je veux le rendre accessible sur invitation seulement
-  Je veux pouvoir distribuer une liste de jetons d'invitation
-  Je veux pouvoir restreindre la participation au scrutin à cette seule liste de jetons.
-  Je peux générer une liste de jeton : par email/par twitter (sic)/par sms
+
+  # Into distribuer-des-invitations
+  # ou publiciser-un-scrutin ?
+  Je veux pouvoir distribuer une liste d'invitations moi-même
+  Je veux pouvoir distribuer une liste d'invitations par email
+  Je veux pouvoir distribuer une liste d'invitations par SMS
+  Je veux pouvoir distribuer une liste d'invitations par twitter
 
 
 Règle: Une invitation ne peut être acceptée que par un⋅e seul⋅e participant⋅e
@@ -174,6 +177,7 @@ Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'
 
 
 Scénario: Brûler les invitations non-acceptées
+# Sa propre feature ?
 
 
 Scénario: Distribuer des invitations à un scrutin soi-même
@@ -188,8 +192,4 @@ Scénario: Distribuer des invitations à un scrutin par SMS
 #Il m'est proposé de créer un compte.
 #
 #---->Si je crée mon compte après la soumission d'un vote, il m'est proposé de lier mon vote à mon compte.
-#
-#
-#Fonctionnalité: Dépouillement
-
 
