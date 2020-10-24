@@ -10,10 +10,13 @@ Fonctionnalité: Dépouiller un scrutin au jugement majoritaire
 Règle: On ne peut pas dépouiller un scrutin sans aucun vote
 Règle: La mention par défaut est la "pire" mention
 Règle: Dans le cas d'un nombre pair de votes, on prend la "pire" médiane
+Règle: Un scrutin peut être dépouillé à tout instant
+
+#
+# Règle: Un scrutin peut être configuré pour n'être dépouillable qu'après sa fermeture
 
 
-
-Scénario: Dépouillement d'un scrutin sans aucun vote
+Scénario: Échouer à dépouiller un scrutin sans aucun vote
   Étant donné un citoyen nommé Fantôme
            Et un scrutin au jugement majoritaire comme suit:
           """
@@ -66,6 +69,22 @@ Scénario: Dépouillement à tout instant
           """
            Et R2D2 dépouille le scrutin titré "La Saga Star Wars"
         Alors R2D2 devrait réussir
+           #Et R2D2 affiche la transaction
+           Et ce dépouillement devrait être:
+          """
+          Épisode IV:
+            rang: 1
+            mention: excellent
+          Épisode V:
+            rang: 2
+            mention: très bien
+          Épisode VI:
+            rang: 2
+            mention: très bien
+          Disney:
+            rang: 4
+            mention: insuffisant
+          """
         Quand C3PO vote sur le scrutin au jugement majoritaire titré "La Saga Star Wars":
           """
           Épisode IV : excellent
@@ -77,3 +96,18 @@ Scénario: Dépouillement à tout instant
         Alors C3PO devrait aussi réussir
         Quand C3PO dépouille à nouveau le scrutin titré "La Saga Star Wars"
         Alors C3PO devrait encore réussir
+           Et ce dépouillement devrait être:
+          """
+          Épisode IV:
+            rang: 1
+            mention: excellent
+          Épisode V:
+            rang: 3
+            mention: passable
+          Épisode VI:
+            rang: 2
+            mention: très bien
+          Disney:
+            rang: 4
+            mention: à rejeter
+          """
