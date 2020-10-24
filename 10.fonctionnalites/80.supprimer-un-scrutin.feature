@@ -56,8 +56,8 @@ Scénario: Suppression d'un scrutin ayant des votes par un modérateur
           """
            Et Spammeur vote sur le scrutin titré "BuY mY Pr0dUcT":
           """
-          C4C4 : à rejeter
-          $3×  : passable
+          C4C4 : Blu3P1lL
+          $3×  : dRuGz
           """
         Quand Georges tente de supprimer le scrutin titré "BuY mY Pr0dUcT"
         Alors Georges devrait réussir
@@ -141,7 +141,7 @@ Scénario: Échec de la suppression de mon scrutin car il contient des votes
            Et Doxa vote sur le scrutin titré "L'éthique des entreprises":
           """
           Monsanto : à rejeter
-          Total    : insuffixant
+          Total    : insuffisant
           Mobicoop : très bien
           """
          Mais Iflop n'aime pas ça
