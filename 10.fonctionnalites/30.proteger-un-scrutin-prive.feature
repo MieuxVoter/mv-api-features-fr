@@ -9,9 +9,8 @@ Fonctionnalité: Protéger un scrutin privé
 
 @wip3
 Scénario: Échouer à participer à un scrutin privé
-  Étant donné une visiteuse nommée Marie
   Étant donné une visiteuse nommée Tricheuse
-           Et Marie crée un scrutin au jugement majoritaire comme suit:
+           Et un scrutin au jugement majoritaire comme suit:
           """
           accès: privé
           sujet: Le Confort des Serveurs Git
@@ -24,14 +23,13 @@ Scénario: Échouer à participer à un scrutin privé
             - Enfer
             - Dame de Fer
             - Chaise sans Paille
-            - Duvet moelleux
+            - Duvet Mœlleux
             - Paradis
           """
-#           Et Marie génère deux invitations pour le scrutin sur "Le Confort des Serveurs Git"
         Quand Tricheuse tente de voter sur le scrutin sur "Le Confort des Serveurs Git":
           """
           Github: Enfer
-          Gitlab: Duvet Moelleux
+          Gitlab: Duvet Mœlleux
           Gitea:  Paradis
           """
         Alors Tricheuse devrait échouer
