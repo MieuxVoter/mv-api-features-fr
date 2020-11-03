@@ -74,6 +74,7 @@ Scénario: Participer à un scrutin par invitation
         Alors Marianne devrait réussir
 
 
+# FIXME: Utiliser un autre exemple de scrutin
 Scénario: Limiter le nombre d'invitations générables (cent? mille?)
   Étant donné un citoyen nommé Jean-Luc
            Et Jean-Luc crée un scrutin comme suit:
@@ -111,6 +112,7 @@ Scénario: Limiter le nombre d'invitations générables (cent? mille?)
         # Car les cent premières invitations sont les mêmes
 
 
+# FIXME: Utiliser un autre exemple de scrutin
 Scénario: Échouer à générer des invitations pour un scrutin dont on est pas l'auteur
   Étant donné un citoyen nommé Jean-Luc
            Et une citoyenne nommée Marine
@@ -139,6 +141,7 @@ Scénario: Échouer à générer des invitations pour un scrutin dont on est pas
          Mais Marine devrait échouer
 
 
+# FIXME: Utiliser un autre exemple de scrutin
 Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'autre
   Étant donné un citoyen nommé Jean-Luc
            Et une citoyenne nommée Sofia
@@ -173,6 +176,7 @@ Scénario: Échouer à accepter une invitation déjà acceptée par quelqu'un d'
            Et La France n'aime pas ça
            Et Sbire tente d'accepter l'invitation N°1 de Jean-Luc
          Mais Sbire devrait échouer
+#         Mais cette invitation est déjà acceptée par quelqu'un d'autre
         # Car l'invitation a déjà été acceptée par Sofia
 
 
