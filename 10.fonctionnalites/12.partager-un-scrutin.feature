@@ -12,6 +12,7 @@ Scénario: Partager un lien court
   Étant donné un scrutin au jugement majoritaire comme suit:
           """
           uuid: 6d95c98b-771a-4495-b9f8-75f88d090435
+          slug: scrutin-securite
           sujet: La sécurité des scrutins
           propositions:
             - Par session
@@ -32,6 +33,8 @@ Scénario: Partager un lien court
         Quand Pierre-Louis tente de voir le scrutin identifié "6d9-5c9-8b"
         Alors Pierre-Louis devrait réussir
         Quand Pierre-Louis tente de voir le scrutin identifié "6d9-5c-98b"
+        Alors Pierre-Louis devrait réussir
+        Quand Pierre-Louis tente de voir le scrutin identifié "scrutin-securite"
         Alors Pierre-Louis devrait réussir
         Quand Pierre-Louis tente de voir le scrutin identifié "00000000"
         Alors Pierre-Louis devrait échouer
