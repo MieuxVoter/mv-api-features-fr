@@ -9,7 +9,6 @@ Fonctionnalité: Participer à un scrutin public
 
 
 
-@wip2
 Scénario: Voter au jugement majoritaire
   Étant donné une visiteuse nommée Martine
            Et un scrutin au jugement majoritaire comme suit:
@@ -35,7 +34,7 @@ Scénario: Voter au jugement majoritaire
           """
 
            Et Martine affiche la transaction
-#        Alors Martine devrait avoir quatre votes sur le scrutin intitulé "Mes Philosophies"
+#        Alors Martine devrait avoir trois votes sur le scrutin intitulé "Mes Philosophies"
 
         Alors le dépouillement standard du scrutin de "Mes Philosophies" devrait être:
           """
