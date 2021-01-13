@@ -7,7 +7,6 @@ Fonctionnalité: Protéger un scrutin privé
 
 
 
-@wip3
 Scénario: Échouer à participer à un scrutin privé
   Étant donné une visiteuse nommée Tricheuse
            Et un scrutin au jugement majoritaire comme suit:
