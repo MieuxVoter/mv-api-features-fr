@@ -11,19 +11,14 @@ Fonctionnalité: Voter sur un scrutin au jugement majoritaire
 Règle: Chaque participant⋅e PEUT donner UNE mention à chaque proposition du scrutin
 
 
-# La liste des mentions est sujette à débat:
+# Des listes de mentions sont sujettes à débats ici:
 # https://forum.mieuxvoter.fr/t/terminologie-mieuxvoter/42/76
-#Règle: La première et meilleure mention est "excellent⋅e", "excellente" ou "excellent"
-#Règle: La seconde mention est "très bien"
-#Règle: La troisième mention est "bien"
-#Règle: La quatrième mention est "assez bien"
-#Règle: La cinquième mention est "passable"
-#Règle: La sixième mention est "insuffisant", "insuffisante" ou "insuffisant⋅e"
-#Règle: La septième et pire mention est "à rejeter"
+
 # La "liste des mentions" pourrait-elle être nommée "Gradation" ?
 
-# La liste des mentions doit être paramétrable
+# La liste des mentions doit être paramétrable.
 # Un scrutin doit avoir une liste de mentions par défaut (?!)
+
 
 Règle: Dans le cas d'un nombre pair de votes, on prend la "pire" médiane
 
