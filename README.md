@@ -1,7 +1,7 @@
 
 # ✨ Bienvenue!
 
-Ce dépôt est la **constitution algorithmique** de Limaju, écrite en français.
+Ce dépôt est la **constitution algorithmique** d'un application de delibération au Jugement Majoritaire, écrite en français.
 
 Les scénarios décrits ici sont lus puis exécutés par un logiciel.
 
