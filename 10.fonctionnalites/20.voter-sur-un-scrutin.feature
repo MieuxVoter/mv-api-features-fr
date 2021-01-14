@@ -201,7 +201,7 @@ Scénario: Départage de propositions avec mention médiane identique
           """
 
 
-Scénario: Départage d'options n'ayant pas le même nombre de votes
+Scénario: Départage de propositions n'ayant pas le même nombre de votes
   Étant donné une citoyenne nommée Alice
            Et un citoyen nommé Bobby
            Et un scrutin au jugement majoritaire comme suit:
