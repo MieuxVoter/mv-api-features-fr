@@ -10,7 +10,7 @@ Fonctionnalité: Participer à un scrutin public
 
 
 Scénario: Voter au jugement majoritaire
-  Étant donné une visiteuse nommée Martine
+  Étant donné une citoyenne nommée Martine
            Et un scrutin au jugement majoritaire comme suit:
           """
           accès: public
