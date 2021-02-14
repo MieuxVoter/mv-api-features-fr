@@ -1,6 +1,5 @@
 #language: fr
 @fr
-@wip
 Fonctionnalité: Générer le Profil de Mérite d'un scrutin en SVG
   Dans le but de …
   En tant que participant à un scrutin
@@ -71,7 +70,6 @@ Scénario: Utiliser la syntaxe de tableaux `?tally[0]=0,2,5&tally[1]=4,1,2`
   - selector: ".proposal-ref"
     amount: 3
   """
-  Et Capucine affiche la transaction
 
 
 
@@ -93,7 +91,6 @@ Scénario: Utiliser la syntaxe multidimensionnelle `?tally[0,0]=0&tally[0,1]=2 �
   - selector: ".proposal-ref"
     amount: 3
   """
-  Et Capucine affiche la transaction
 
 
 
@@ -105,10 +102,10 @@ Scénario: Obtenir un SVG avec la documentation d'usage
   # Rien, car Nathalie ne sait pas qu'il faut fournir un dépouillement
   """
   Alors Nathalie devrait réussir
-#  Alors Nathalie devrait échouer ? 200 or 400 ?
+#  Alors Nathalie devrait échouer ? → 200 ou 400 ?
+  #Et Nathalie devrait obtenir un SVG de documentation d'usage  ←  suggestion
   Et Nathalie devrait obtenir un SVG validant:
   """
   - selector: "text.error"
     amount: 1
   """
-  Et Nathalie affiche la transaction
