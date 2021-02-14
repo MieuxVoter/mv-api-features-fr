@@ -24,8 +24,8 @@ Scénario: Générer un SVG de profil de mérite d'un scrutin
 #    - bien
 #  propositions:
 #    - …
-  Et Valentin affiche la transaction
   Alors Valentin devrait réussir
+  Et Valentin affiche la transaction
 #  Alors Valentin devrait recevoir:
 #  """
 #  ???
@@ -40,8 +40,8 @@ Scénario: Utiliser une autre syntaxe comme ?tally=0,2,5/4,1,2
   """
   tally: "0, 2, 5, 2, 4/2, 1, 4, 1, 5 / 0,1,6,3,3"
   """
-  Et Valentin affiche la transaction
   Alors Valentin devrait réussir
+  Et Valentin affiche la transaction
 
 
 
@@ -55,8 +55,8 @@ Scénario: Utiliser la syntaxe de tableaux `?tally[0]=0,2,5&tally[1]=4,1,2`
     - "2, 1, 4, 1, 5"
     - "0, 1, 6, 3, 3"
   """
-  Et Capucine affiche la transaction
   Alors Capucine devrait réussir
+  Et Capucine affiche la transaction
 
 
 
@@ -70,5 +70,17 @@ Scénario: Utiliser la syntaxe multidimensionnelle `?tally[0,0]=0&tally[0,1]=2 �
     - [2, 1, 4, 1, 5]
     - [0, 1, 6, 3, 3]
   """
-  Et Capucine affiche la transaction
   Alors Capucine devrait réussir
+  Et Capucine affiche la transaction
+
+
+Scénario: Obtenir un SVG avec la documentation d'usage
+
+  Étant donné une visiteuse nommée Nathalie
+  Quand Nathalie génère un SVG de profil de mérite d'un scrutin comme suit:
+  """
+  # Rien, car Nathalie ne sait pas qu'il faut fournir un dépouillement
+  """
+  Alors Nathalie devrait réussir
+#  Alors Nathalie devrait échouer ? 200 or 400 ?
+  Et Nathalie affiche la transaction
