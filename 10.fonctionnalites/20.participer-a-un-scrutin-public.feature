@@ -8,6 +8,9 @@ Fonctionnalité: Participer à un scrutin public
   Je souhaite parfois décider avec un scrutin au jugement majoritaire
 
 
+Règle: Les jugements sont immutables
+Règle: On change d'avis en soumettant un nouveau jugement
+
 
 Scénario: Voter au jugement majoritaire
   Étant donné une citoyenne nommée Martine
@@ -41,4 +44,45 @@ Scénario: Voter au jugement majoritaire
           Vivre:      peu prioritaire
           Travailler: ultra prioritaire
           Aimer:      très prioritaire
+          """
+
+
+
+Scénario: Soumettre un nouveau jugement
+  Étant donné une citoyenne nommée Girouette
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          accès: public
+          sujet: J'aime…
+          propositions:
+            - le vent du Sud
+            - le petit vent frais
+            - le mistral
+          mentions:
+            - pas du tout
+            - un peu
+            - à la folie
+          """
+        Quand Girouette vote sur le scrutin assujettissant "J'aime…":
+          """
+          le vent du Sud: pas du tout
+          le petit vent frais: pas du tout
+          le mistral: à la folie
+          """
+        Alors le dépouillement standard du scrutin de "J'aime…" devrait être:
+          """
+          le vent du Sud: pas du tout
+          le petit vent frais: pas du tout
+          le mistral: à la folie
+          """
+         Mais Girouette change d'avis
+        Alors Girouette vote sur le scrutin assujettissant "J'aime…":
+          """
+          le vent du Sud: à la folie
+          """
+        Alors le dépouillement standard du scrutin de "J'aime…" devrait être:
+          """
+          le vent du Sud: à la folie
+          le petit vent frais: pas du tout
+          le mistral: à la folie
           """
