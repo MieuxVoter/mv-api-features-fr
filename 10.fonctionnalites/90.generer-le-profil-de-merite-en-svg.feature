@@ -52,6 +52,23 @@ Scénario: Utiliser une autre syntaxe comme ?tally=0,2,5/4,1,2
 
 
 
+@wip
+Scénario: Utiliser une autre syntaxe comme 0-2-5_4-1-2.svg
+
+  Étant donné un visiteur nommé Pierre-Louis
+  Quand Pierre-Louis télécharge le fichier 0-2-5_4-1-2.svg
+  Alors Pierre-Louis devrait réussir
+  Et Pierre-Louis devrait obtenir un SVG validant:
+  """
+  - selector: "text.error"
+    amount: 0
+  - selector: ".proposal-ref"
+    amount: 2
+  """
+  Et Pierre-Louis affiche la transaction
+
+
+
 Scénario: Utiliser la syntaxe de tableaux `?tally[0]=0,2,5&tally[1]=4,1,2`
 
   Étant donné une visiteuse nommée Capucine
