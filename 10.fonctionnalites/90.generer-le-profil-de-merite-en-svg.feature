@@ -26,10 +26,6 @@ Scénario: Générer un SVG de profil de mérite d'un scrutin
 #    - …
   Alors Valentin devrait réussir
   Et Valentin affiche la transaction
-#  Alors Valentin devrait recevoir:
-#  """
-#  ???
-#  """
 
 
 
