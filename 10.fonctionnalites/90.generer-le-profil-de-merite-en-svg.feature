@@ -52,7 +52,6 @@ Scénario: Utiliser une autre syntaxe comme ?tally=0,2,5/4,1,2
 
 
 
-@wip
 Scénario: Utiliser une autre syntaxe comme 0-2-5_4-1-2.svg
 
   Étant donné un visiteur nommé Pierre-Louis
