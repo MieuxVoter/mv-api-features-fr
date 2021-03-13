@@ -9,11 +9,25 @@ Fonctionnalité: Résoudre majoritairement un dépouillement
 Règle: S'authentifier n'est pas nécessaire pour résoudre un dépouillement
 
 
-@wip
 Scénario: Résoudre un dépouillement
 
   Étant donné un visiteur nommé Paul Bourgine
   Quand Paul Bourgine télécharge le fichier 0-2-5-2-4_2-1-4-1-5_0-1-6-3-3.json
   Alors Paul Bourgine devrait réussir
-  Et Paul Bourgine affiche la transaction
+  Et la réponse à Paul Bourgine devrait comporter:
+  """
+  proposals:
+  - proposal: 0
+    rank: 2
+    tally: [0, 2, 5, 2, 4]
+    median: 2
+  - proposal: 1
+    rank: 1
+    tally: [2, 1, 4, 1, 5]
+    median: 2
+  - proposal: 2
+    rank: 3
+    tally: [0, 1, 6, 3, 3]
+    median: 2
+  """
 
