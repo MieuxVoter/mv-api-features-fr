@@ -31,3 +31,14 @@ Scénario: Résoudre un dépouillement
     median: 2
   """
 
+
+@wip
+@vigil
+Scénario: Donner n'importe quoi comme dépouillement
+
+  Étant donné un visiteur nommé Imran Tierce
+  Quand Imran Tierce tente de télécharger le fichier not-a-tally-lol.json
+  Alors Imran Tierce devrait échouer
+  Alors Imran Tierce devrait recevoir un code 404
+  Alors Imran Tierce affiche la transaction
+
