@@ -59,6 +59,32 @@ Scénario: Donner un dépouillement inégal
 
 
 
+@sugar
+@foolproof
+Scénario: Donner un dépouillement avec des zéros en préfixe
+
+  Étant donné un visiteur nommé Paul Bourgine
+  Quand Paul Bourgine télécharge le fichier 000-2-5-2-04_2-1-4-001-5_0-1-6-3-03.json
+  Alors Paul Bourgine devrait réussir
+  Et la réponse à Paul Bourgine devrait comporter:
+  """
+  proposals:
+  - proposal: 0
+    rank: 2
+    tally: [0, 2, 5, 2, 4]
+    median: 2
+  - proposal: 1
+    rank: 1
+    tally: [2, 1, 4, 1, 5]
+    median: 2
+  - proposal: 2
+    rank: 3
+    tally: [0, 1, 6, 3, 3]
+    median: 2
+  """
+
+
+
 @vigil
 Scénario: Donner n'importe quoi comme dépouillement
 
