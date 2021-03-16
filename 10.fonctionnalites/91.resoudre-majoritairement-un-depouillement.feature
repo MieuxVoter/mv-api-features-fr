@@ -6,7 +6,9 @@ Fonctionnalité: Résoudre majoritairement un dépouillement
   Je veux résoudre ce dépouillement
 
 
+
 Règle: S'authentifier n'est pas nécessaire pour résoudre un dépouillement
+
 
 
 Scénario: Résoudre un dépouillement
@@ -32,7 +34,31 @@ Scénario: Résoudre un dépouillement
   """
 
 
-@wip
+
+Scénario: Donner un dépouillement inégal
+
+  Étant donné un visiteur nommé Imran Tierce
+  Quand Imran Tierce tente de télécharger le fichier 0-1-1-1-0_1-0-0-0-1_0-0-1-1-0.json
+  Alors Imran Tierce devrait réussir
+  Et la réponse à Imran Tierce devrait comporter:
+  """
+  proposals:
+  - proposal: 0
+    rank: 1
+    tally: [0, 1, 1, 1, 0]
+    median: 2
+  - proposal: 1
+    rank: 3
+    tally: [2, 0, 0, 0, 1]
+    median: 0
+  - proposal: 2
+    rank: 2
+    tally: [1, 0, 1, 1, 0]
+    median: 2
+  """
+
+
+
 @vigil
 Scénario: Donner n'importe quoi comme dépouillement
 
@@ -40,5 +66,7 @@ Scénario: Donner n'importe quoi comme dépouillement
   Quand Imran Tierce tente de télécharger le fichier not-a-tally-lol.json
   Alors Imran Tierce devrait échouer
   Alors Imran Tierce devrait recevoir un code 404
-  Alors Imran Tierce affiche la transaction
+
+
+
 
