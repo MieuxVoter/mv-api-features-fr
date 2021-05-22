@@ -12,7 +12,7 @@ Règle: Le courriel doit être unique
 
 
 Règle: Le nom d'utilisateur⋅e est obligatoire
-#Règle: Un nom d'utilisateur⋅e est créé automatiquement si aucun n'est fourni
+Règle: Un nom d'utilisateur⋅e est créé automatiquement si aucun n'est fourni
 Règle: Le nom d'utilisateur⋅e doit être unique
 
 #Règle: Le mot de passe doit comporter au moins ?? caractères
@@ -49,6 +49,17 @@ Scénario: Créer un compte utilisateur sans courriel
   Alors il devrait maintenant y avoir deux utilisatrices dans la base de données
 
 
+Scénario: Créer un compte utilisateur avec un nom généré automatiquement
+
+  Sachant qu'il ne devrait y avoir aucun utilisateur dans la base de données
+  Étant donné une visiteuse nommée Solenn
+  Quand Solenn crée un compte utilisateur comme suit:
+    """
+    password: polysemic-platypus-yggdrâsil-nonchalant
+    """
+     Et Solenn affiche la transaction
+  Alors il devrait maintenant y avoir une utilisatrice dans la base de données
+
 
 Scénario: Échouer à créer un compte avec un nom d'utilisateur déjà pris
 
@@ -66,7 +77,7 @@ Scénario: Échouer à créer un compte avec un nom d'utilisateur déjà pris
     password: liquid-philology-holistic-sherpa-spring
     """
   Alors Clotilde Egojoly devrait échouer
-     Et Clotilde Egojoly affiche la transaction
+#     Et Clotilde Egojoly affiche la transaction
 
 
 
