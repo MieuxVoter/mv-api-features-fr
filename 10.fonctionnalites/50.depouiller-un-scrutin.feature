@@ -112,11 +112,43 @@ Scénario: Dépouillement à tout instant
             mention: à rejeter
           """
 
+@wip
+Scénario: Dépouiller un scrutin public
+  Étant donnée une visiteuse nommée Caro
+     Et un scrutin au jugement majoritaire comme suit:
+    """
+    sujet: Le goût des sucreries
+    sujet-proposition: gout de sucrerie
+    question: Comment jugez-vous le goût des sucreries suivantes ?
+    question-singuliere: Comment jugez-vous le goût de la sucrerie "<X>" ?
+    propositions:
+      - Caramel dur
+      - Truk chimik ki pik
+      - Barre de réglisse
+    mentions:
+      - à rejeter
+      - insuffisant
+      - passable
+      - assez bien
+      - bien
+      - très bien
+      - excellent
+    """
+    Quand Caro vote sur le scrutin au jugement majoritaire assujettissant "Le goût des sucreries":
+    """
+    Caramel dur: excellent
+    Truk chimik ki pik: très bien
+    Barre de réglisse: passable
+    """
+    Quand Caro dépouille le scrutin assujettissant "Le goût des sucreries"
+    Alors Caro devrait réussir
+       Et Caro affiche la transaction
+
 
 # Puisque nos autres scénarios n'utilisent qu'un seul scrutin
 @vigil
 Scénario: Deux scrutins
-  Étant donné une citoyenne nommé Adèle
+  Étant donné une citoyenne nommée Adèle
      Et une citoyenne nommée Brigitte
      Et une citoyenne nommée Clotilde
      Et un scrutin au jugement majoritaire comme suit:
