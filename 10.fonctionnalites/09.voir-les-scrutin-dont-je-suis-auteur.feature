@@ -13,13 +13,13 @@ Scénario: Voir mes propres scrutins
           """
           auteur: Eban
           accès: privé
-          sujet: Scrutin A
+          sujet: Comment réutiliser le même lien
           propositions:
-            - Proposition A
-            - Proposition B
+            - Éditer un seul scrutin
+            - Lister mes derniers scrutins
           mentions:
-            - Non
-            - Oui
+            - Défavorable
+            - Favorable
           """
         Quand Eban liste ses propres scrutins
         Alors Eban devrait réussir
