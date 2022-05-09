@@ -112,9 +112,10 @@ Scénario: Dépouillement à tout instant
             mention: à rejeter
           """
 
+
 @wip
 Scénario: Dépouiller un scrutin public
-  Étant donnée une visiteuse nommée Caro
+  Étant donnée une citoyenne nommée Caro
      Et un scrutin au jugement majoritaire comme suit:
     """
     sujet: Le goût des sucreries
@@ -140,8 +141,22 @@ Scénario: Dépouiller un scrutin public
     Truk chimik ki pik: très bien
     Barre de réglisse: passable
     """
-    Quand Caro dépouille le scrutin assujettissant "Le goût des sucreries"
     Alors Caro devrait réussir
+    Quand Caro dépouille le scrutin assujettissant "Le goût des sucreries"
+       Et Caro affiche la transaction
+    Alors Caro devrait réussir
+       Et ce dépouillement devrait être:
+      """
+      Caramel dur:
+        rang: 1
+        mention: excellent
+      Truk chimik ki pik:
+        rang: 2
+        mention: très bien
+      Barre de réglisse:
+        rang: 3
+        mention: passable
+      """
        Et Caro affiche la transaction
 
 
