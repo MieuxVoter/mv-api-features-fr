@@ -73,6 +73,59 @@ Scénario: Participer à un scrutin par invitation
           """
         Alors Marianne devrait réussir
 
+Scénario: Ne pas pouvoir inviter par mail sans KYC
+  Étant donné un citoyen nommé Bob
+           Et Bob n'a pas d'email vérifié
+           Et une citoyenne nommée Marine
+        Quand Bob crée un scrutin comme suit:
+          """
+          sujet: Le meilleur fruit
+          propositions:
+          - Pomme
+          - Banane
+          - Orange
+          - Fraise
+          - Raisin
+          - Ananas
+          mentions:
+          - Insuffisant
+          - Passable
+          - Bien
+          - Très Bien
+          - Excellent
+          accès: privé
+          """
+        Alors Bob devrait réussir
+        Quand Bob tente d'inviter par email un citoyen nommé Marine pour le scrutin de "Le meilleur fruit"
+        Alors Bob devrait échouer
+         Mais Bob devrait recevoir un message lui demandant d'avoir un email vérifié
+
+Scénario: Pouvoir inviter par mail
+  Étant donné un citoyen nommé Bob
+           Et Bob a un email vérifié
+           Et une citoyenne nommée Marine
+        Quand Bob crée un scrutin comme suit:
+          """
+          sujet: Le meilleur fruit
+          propositions:
+          - Pomme
+          - Banane
+          - Orange
+          - Fraise
+          - Raisin
+          - Ananas
+          mentions:
+          - Insuffisant
+          - Passable
+          - Bien
+          - Très Bien
+          - Excellent
+          accès: privé
+          """
+        Alors Bob devrait réussir
+        Quand Bob tente d'inviter par email un citoyen nommé Marine pour le scrutin de "Le meilleur fruit"
+        Alors Bob devrait réussir
+           Et Marine devrait recevoir une invitation par email
 
 # FIXME: Utiliser un autre exemple de scrutin
 Scénario: Limiter le nombre d'invitations générables (cent? mille?)
