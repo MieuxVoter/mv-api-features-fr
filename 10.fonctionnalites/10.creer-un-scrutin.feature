@@ -220,3 +220,95 @@ Scénario: Créer un scruting avec une date de fin antérieure à maintenant
           """
         Alors Rétro devrait échouer
            Et il devrait toujours n'y avoir aucun scrutin dans la base de données
+
+Scénario: Créer un scrutin avec résultats visibles immédiatement
+  Étant donné une citoyenne nommée Claire
+        Quand Claire crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Sondage instantané
+          propositions:
+            - Option A
+            - Option B
+          mentions:
+            - Pas convaincu
+            - Convaincu
+          visibilite_resultats: immediat
+          """
+        Alors Claire devrait réussir
+           Et les résultats du scrutin "Sondage instantané" devraient être visibles immédiatement
+
+
+Scénario: Créer un scrutin avec résultats différés jusqu'à la date de fin
+  Étant donné un citoyen nommé Patiente
+           Et Patiente a un email vérifié
+        Quand Patiente crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Élection à suspense
+          propositions:
+            - Candidat Alpha
+            - Candidat Beta
+          mentions:
+            - À rejeter
+            - Acceptable
+            - Excellent
+          date_fin: 2025-12-31T23:59:59Z
+          visibilite_resultats: differe
+          """
+        Alors Patiente devrait réussir
+           Et les résultats du scrutin "Élection à suspense" ne devraient pas être visibles avant la date de fin
+
+
+Scénario: Créer un scrutin avec résultats visibles uniquement par l'administrateur
+  Étant donné un citoyen nommé Confidentiel
+           Et Confidentiel a un email vérifié
+        Quand Confidentiel crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin confidentiel
+          propositions:
+            - Proposition Secrète A
+            - Proposition Secrète B
+          mentions:
+            - Non
+            - Oui
+          visibilite_resultats: admin_seulement
+          """
+        Alors Confidentiel devrait réussir
+           Et les résultats du scrutin "Scrutin confidentiel" ne devraient être visibles que par l'administrateur
+
+
+Scénario: Échouer à créer un scrutin avec résultats admin-only sans email vérifié
+  Étant donné une citoyenne nommée SansEmail
+           Et SansEmail n'a pas d'email vérifié
+        Quand SansEmail tente de créer un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Tentative scrutin privé
+          propositions:
+            - Proposition X
+            - Proposition Y
+          mentions:
+            - Non
+            - Oui
+          visibilite_resultats: admin_seulement
+          """
+        Alors SansEmail devrait échouer
+         Mais SansEmail devrait recevoir un message lui demandant d'avoir un email vérifié
+
+
+Scénario: Créer un scrutin avec ordre aléatoire des candidats
+  Étant donné un citoyen nommé Equitable
+        Quand Equitable crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin équitable
+          propositions:
+            - Premier dans la liste
+            - Deuxième dans la liste
+            - Troisième dans la liste
+          mentions:
+            - Mauvais
+            - Moyen
+            - Bon
+          ordre_aleatoire_candidats: true
+          """
+        Alors Equitable devrait réussir
+           Et le scrutin "Scrutin équitable" devrait afficher les candidats dans un ordre aléatoire
+

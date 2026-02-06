@@ -237,6 +237,87 @@ Scénario: Brûler les invitations non-acceptées
 # Sa propre feature ?
 
 
+Scénario: Générer des invitations avec liens uniques par utilisateur
+  Étant donné un citoyen nommé Organisateur
+           Et Organisateur crée un scrutin comme suit:
+          """
+          sujet: Scrutin privé avec liens uniques
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - Non
+            - Oui
+          accès: privé
+          """
+        Quand Organisateur génère 5 invitations pour le scrutin de "Scrutin privé avec liens uniques"
+        Alors Organisateur devrait réussir
+           Et Organisateur devrait avoir 5 invitations
+           Et chaque invitation devrait avoir un lien unique
+           Et aucun lien d'invitation ne devrait être identique
+
+
+Scénario: Vérifier qu'un lien d'invitation ne peut être utilisé qu'une seule fois
+  Étant donné un citoyen nommé Organisateur
+           Et une citoyenne nommée Alice
+           Et un citoyen nommé Bob
+           Et Organisateur crée un scrutin comme suit:
+          """
+          sujet: Scrutin avec invitation unique
+          propositions:
+            - Candidat X
+            - Candidat Y
+          mentions:
+            - Non
+            - Oui
+          accès: privé
+          """
+           Et Organisateur génère 2 invitations pour le scrutin de "Scrutin avec invitation unique"
+           Et Alice accepte l'invitation N°1 de Organisateur
+        Quand Bob tente d'accepter l'invitation N°1 de Organisateur
+        Alors Bob devrait échouer
+         Mais Bob devrait recevoir un message indiquant que l'invitation a déjà été acceptée
+
+
+Scénario: Envoyer des invitations par email avec lien unique
+  Étant donné un citoyen nommé Organisateur
+           Et Organisateur a un email vérifié
+           Et une citoyenne nommée Destinataire avec l'email "destinataire@example.com"
+           Et Organisateur crée un scrutin comme suit:
+          """
+          sujet: Scrutin par email
+          propositions:
+            - Motion A
+            - Motion B
+          mentions:
+            - Contre
+            - Pour
+          accès: privé
+          """
+        Quand Organisateur envoie une invitation par email à "destinataire@example.com" pour le scrutin de "Scrutin par email"
+        Alors Organisateur devrait réussir
+           Et Destinataire devrait recevoir un email avec un lien d'invitation unique
+           Et le lien d'invitation devrait permettre à Destinataire de participer au scrutin
+
+
+Scénario: Ne pas pouvoir générer des invitations pour un scrutin public
+  Étant donné un citoyen nommé Organisateur
+           Et Organisateur crée un scrutin comme suit:
+          """
+          sujet: Scrutin public
+          propositions:
+            - Option A
+            - Option B
+          mentions:
+            - Non
+            - Oui
+          accès: public
+          """
+        Quand Organisateur tente de générer 5 invitations pour le scrutin de "Scrutin public"
+        Alors Organisateur devrait échouer
+         Mais Organisateur devrait recevoir un message indiquant que les invitations sont réservées aux scrutins privés
+
+
 Scénario: Distribuer des invitations à un scrutin soi-même
 Scénario: Distribuer des invitations à un scrutin par courriel
 Scénario: Distribuer des invitations à un scrutin par SMS

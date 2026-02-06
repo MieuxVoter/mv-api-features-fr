@@ -236,6 +236,40 @@ Scénario: Départage de propositions n'ayant pas le même nombre de votes
           """
 
 
+Scénario: Départage de propositions n'ayant pas le même nombre de votes
+  Étant donné une citoyenne nommée Alice
+           Et un citoyen nommé Bobby
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - à rejeter
+            - bien
+            - excellent
+          """
+        Quand Alice vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+          """
+          Proposition A: bien
+          Proposition B: bien
+          """
+           Et Bobby vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+          """
+          Proposition A: bien
+          """
+           Et Bobby ne donne pas son avis sur l'autre proposition
+        Alors le dépouillement standard du scrutin intitulé "Scrutin" devrait être:
+          """
+          Proposition A:
+            mention: bien
+            position: 1
+          Proposition B:
+            mention: à rejeter
+            position: 2
+          """
+
 Scénario: Voter sur un scrutin avec une date de début non démarré
   Étant donné un citoyen nommé Chrono
            Et un scrutin au jugement majoritaire comme suit:
