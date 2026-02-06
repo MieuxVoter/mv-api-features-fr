@@ -236,6 +236,49 @@ Scénario: Départage de propositions n'ayant pas le même nombre de votes
           """
 
 
+Scénario: Voter sur un scrutin avec une date de début non démarré
+  Étant donné un citoyen nommé Chrono
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - à rejeter
+            - bien
+            - excellent
+          date_debut: 3000-08-01T10:00:00Z
+          """
+        Quand Chrono vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+          """
+          Proposition A: bien
+          Proposition B: bien
+          """
+        Alors Chrono devrait échouer
+           Et il devrait toujours n'y avoir aucun Ballot dans la base de données
+
+Scénario: Voter sur un scrutin avec une date de fin dépassée
+  Étant donné un citoyen nommé Chrono
+           Et un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin
+          propositions:
+            - Proposition A
+            - Proposition B
+          mentions:
+            - à rejeter
+            - bien
+            - excellent
+          date_fin: 2000-08-01T10:00:00Z
+          """
+        Quand Chrono vote sur le scrutin au jugement majoritaire intitulé "Scrutin":
+          """
+          Proposition A: bien
+          Proposition B: bien
+          """
+        Alors Chrono devrait échouer
+           Et il devrait toujours n'y avoir aucun Ballot dans la base de données
 
 # Avoir des options nommées identiquement d'un scrutin à l'autre
 # était une des limitations initiales connues de la base de code.

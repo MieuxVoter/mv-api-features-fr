@@ -150,3 +150,73 @@ Scénario: Échouer à créer un scrutin avec trop de mentions (17 mentions)
 #           Et Perle affiche la transaction
            Et il devrait toujours n'y avoir aucun scrutin dans la base de données
 
+
+
+Scénario: Créer un scrutin avec date de début
+  Étant donné un citoyen nommé Organisateur
+        Quand Organisateur crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Assemblée Générale 2025
+          propositions:
+            - Motion A
+            - Motion B
+            - Motion C
+          mentions:
+            - Contre
+            - Abstention
+            - Pour
+          date_debut: 2025-06-15T09:00:00Z
+          """
+        Alors Organisateur devrait réussir
+           Et le scrutin intitulé "Assemblée Générale 2025" devrait avoir une date de début
+
+Scénario: Créer un scrutin avec date de fin
+  Étant donné une citoyenne nommée Planificatrice
+        Quand Planificatrice crée un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Vote pour le lieu de la fête
+          propositions:
+            - Plage
+            - Montagne
+            - Campagne
+          mentions:
+            - Pas du tout
+            - Peut-être
+            - Absolument
+          date_fin: 2025-07-01T18:00:00Z
+          """
+        Alors Planificatrice devrait réussir
+           Et le scrutin intitulé "Vote pour le lieu de la fête" devrait avoir une date de fin
+
+Scénario: Créer un scruting avec une date de fin antérieure à la date de début
+  Étant donné un citoyen nommé Chrono
+        Quand Chrono tente de créer un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin temporel
+          propositions:
+            - Option 1
+            - Option 2
+          mentions:
+            - Non
+            - Oui
+          date_debut: 2025-08-01T10:00:00Z
+          date_fin: 2025-07-01T18:00:00Z
+          """
+        Alors Chrono devrait échouer
+           Et il devrait toujours n'y avoir aucun scrutin dans la base de données
+
+Scénario: Créer un scruting avec une date de fin antérieure à maintenant
+  Étant donné une citoyenne nommée Rétro
+        Quand Rétro tente de créer un scrutin au jugement majoritaire comme suit:
+          """
+          sujet: Scrutin du passé
+          propositions:
+            - Option A
+            - Option B
+          mentions:
+            - Non
+            - Oui
+          date_fin: 2020-01-01T00:00:00Z
+          """
+        Alors Rétro devrait échouer
+           Et il devrait toujours n'y avoir aucun scrutin dans la base de données
